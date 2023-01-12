@@ -71,8 +71,7 @@ func main() {
 
 	p.Produce(&kafka.Message{
 		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
-		Key: []byte("0000000000"), Value: recordValue}
-		, nil)
+		Key: []byte("0000000000"), Value: recordValue}, nil)
 
 	p.Flush(15 * 1000)
 
