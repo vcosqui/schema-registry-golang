@@ -16,12 +16,12 @@ type Payment struct {
 
 func main() {
 
-	topic := "transactions-value"
+	topic := "transactions"
 
 	// 1) Fetch the latest version of the schema
 	schemaRegistryClient := srclient.CreateSchemaRegistryClient("https://psrc-68gz8.us-east-2.aws.confluent.cloud")
 	schemaRegistryClient.SetCredentials(os.Getenv("SR_USER"), os.Getenv("SR_PASSWORD"))
-	schema, err := schemaRegistryClient.GetLatestSchema(topic)
+	schema, err := schemaRegistryClient.GetLatestSchema("transactions-value")
 	if err != nil {
         panic(fmt.Sprintf("Error getting the schema %s", err))
     }
